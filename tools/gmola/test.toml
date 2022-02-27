@@ -1,0 +1,16 @@
+[sqs]
+  region = "us-east-1"
+  project = "Mola"
+  app = "Test"
+  service = "Demo"
+
+[redis]
+  addr = "redis.test.local:6379"
+  password = ""
+  db = 0
+
+[[orders]]
+  name = "DemoOrder1"
+  timeout = 180
+  retry = 3
+

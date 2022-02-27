@@ -1,0 +1,34 @@
+syntax = "proto3";
+
+package mola;
+
+import "google/protobuf/any.proto";
+
+message OrderEnvelop {
+	string	App = 1;
+	string	Contract =2;  // optional field contract for a group orders
+	string	TraceID =3;
+	string	OrderType =4;
+}
+
+message OrderMessage {
+	OrderEnvelop Envelop = 1;
+	google.protobuf.Any	WorkerConf = 2;
+	google.protobuf.Any	Body = 3; // the order body could decode by the worker with the Header.OrderType
+}
+
+
+// OrderBrief to send order process brief to data application
+message OrderBrief {
+	OrderEnvelop Envelop = 1;
+	enum State {
+		UNKOWN = 0;
+		SUCCEED = 1;
+		FAILED = 2;
+		TIMEOUT = 3;
+	}
+	State		Result = 2; // the process result
+	double	Duration = 3; // the process duration for task processing
+	string	ErrorMessage = 4; // the error message if it has
+	string	CustomRes = 5; // the custom result string
+}

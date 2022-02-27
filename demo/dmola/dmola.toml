@@ -1,0 +1,27 @@
+capacity = 5
+status_plus = 30
+
+[logs]
+  console_level = "debug"
+  format = ""
+  [logs.rotate]
+    link = "./mola.log"
+    file = "./mola.log.%Y%m%d%H%M"
+    rotation = 24
+    keep_rotation = 7
+
+[redis]
+  addr = "redis.test.local:6379"
+  password = ""
+  db = 0
+
+[sqs]
+  region = "us-east-1"
+  project = "Mola"
+  app = "Test"
+  service = "Demo"
+
+[priority_queue_http]
+  enable=true
+  port="23333"
+  priority_queue_capacity = 100

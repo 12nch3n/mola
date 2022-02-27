@@ -1,0 +1,13 @@
+syntax = "proto3";
+
+package demo;
+
+message DemoConf {
+	string	ConfItem1 = 1;
+	int64		ConfItem2 = 2;
+}
+
+message DemoOrder {
+	string foo = 1;
+	string bar = 2;
+}
